@@ -2,11 +2,12 @@
 This repository contains the code of the paper [Auto-Vocabulary Semantic Segmentation](https://arxiv.org/abs/2312.04539) by Osman Ülger, Maksymilian Kulicki, Yuki Asano and Martin R. Oswald.
 
 <p align="center">
-  <img src="img/pipeline.png" width="90%" height="90%">
+  <img src="img/bboost_pipeline.png" width="90%" height="90%">
 </p>
 
 ## Code Release
-Coming soon upon publication.
+- [x] LAVE mapper
+- [ ] Full model (coming soon upon publication)
 
 ## Cite
 ```
