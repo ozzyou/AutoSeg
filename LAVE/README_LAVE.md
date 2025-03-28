@@ -31,12 +31,13 @@ If your vocabulary is large, consider using a small `--llm_batch_size` to preven
 ## Cite
 If useful to you, please cite our paper.
 ```
-@misc{ülger2024autovocabulary,
+@misc{ülger2025autovocabularysemanticsegmentation,
       title={Auto-Vocabulary Semantic Segmentation}, 
       author={Osman Ülger and Maksymilian Kulicki and Yuki Asano and Martin R. Oswald},
-      year={2024},
+      year={2025},
       eprint={2312.04539},
       archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2312.04539}, 
 }
 ```
