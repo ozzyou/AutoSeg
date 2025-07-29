@@ -29,7 +29,7 @@ cd X_Decoder && mkdir weights && cd weights
 wget https://huggingface.co/xdecoder/X-Decoder/resolve/main/xdecoder_focall_last.pt && cd ../..
 ```
 
-Furthermore, in ```<path to envs>/autoseg/lib/python3.8/site-packages/detectron2/data/catalog.py```, please comment out ```assert oldval == val"``` to allow for vocabulary resetting.
+Furthermore, in ```<path to envs>/autoseg/lib/python3.8/site-packages/detectron2/data/catalog.py```, please comment out ```assert oldval == val``` to allow for vocabulary resetting.
 
 
 <p align="center">
