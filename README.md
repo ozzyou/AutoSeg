@@ -11,24 +11,47 @@
   <img src="img/teaser.png" width="100%" height="100%">
 </p>
 
-## Code Release
-- [x] [LLM-Based Auto-Vocabulary Evaluator (LAVE)](https://github.com/ozzyou/AutoSeg/tree/main/LAVE) to map open-ended vocabulary to target vocabulary
-- [ ] BBoost for generating the auto-vocabulary (coming soon upon publication)
-- [ ] Full model (coming soon upon publication)
+## Get Started
+```sh
+# Create and activate environment
+conda create --name autoseg python=3.8
+source activate autoseg
+
+# Download and install requirements
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+pip install --force-reinstall --no-cache-dir git+https://github.com/MaureenZOU/detectron2-xyz.git
+python -m spacy download en_core_web_sm
+git clone https://github.com/ozzyou/X_Decoder.git
+
+# Download X-Decoder weights
+cd X_Decoder && mkdir weights && cd weights
+wget https://huggingface.co/xdecoder/X-Decoder/resolve/main/xdecoder_focall_last.pt && cd ../..
+```
+
+Furthermore, in ```<path to envs>/autoseg/lib/python3.8/site-packages/detectron2/data/catalog.py```, please comment out ```assert oldval == val"``` to allow for vocabulary resetting.
+
 
 <p align="center">
   <img src="img/bboost_pipeline.png" width="100%" height="100%">
 </p>
 
-## Cite
+## Running AutoSeg
+To run AutoSeg on your own images, drop the images in the ```/input``` folder and run the following command:
+```sh
+torchrun inference.py --conf_files X_Decoder/configs/autoseg/autoseg.yml --overrides BASE_PATH <path to AutoSeg> WEIGHT True RESUME_FROM X_Decoder/weights/xdecoder_focall_last.pt
 ```
-@misc{ülger2025autovocabularysemanticsegmentation,
+
+You will find the output images in ```output```. To change the hyperparameters of AutoSeg, refer to the config file ```/X-Decoder/configs/autoseg/autoseg.yml```.
+
+## Cite
+If you found this work useful, please cite our work.
+```
+@InProceedings{Ülger_2025_ICCV,
       title={Auto-Vocabulary Semantic Segmentation}, 
       author={Osman Ülger and Maksymilian Kulicki and Yuki Asano and Martin R. Oswald},
-      year={2025},
-      eprint={2312.04539},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2312.04539}, 
+      booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+      month     = {October},
+      year      = {2025}
 }
 ```
