@@ -26,7 +26,7 @@ git clone https://github.com/ozzyou/X_Decoder.git
 
 # Download X-Decoder weights
 cd X_Decoder && mkdir weights && cd weights
-wget https://huggingface.co/xdecoder/X-Decoder/resolve/main/xdecoder_focall_last.pt && cd ../..
+wget https://huggingface.co/xdecoder/X-Decoder/resolve/main/xdecoder_focall_last.pt && cd ../.. && mkdir inputs && mkdir outputs
 ```
 
 Furthermore, in ```<path to envs>/autoseg/lib/python3.8/site-packages/detectron2/data/catalog.py```, please comment out ```assert oldval == val``` to allow for vocabulary resetting.
@@ -42,7 +42,7 @@ To run AutoSeg on your own images, drop the images in the ```/input``` folder an
 torchrun inference.py --conf_files X_Decoder/configs/autoseg/autoseg.yml --overrides BASE_PATH <path to AutoSeg> WEIGHT True RESUME_FROM X_Decoder/weights/xdecoder_focall_last.pt
 ```
 
-You will find the output images in ```output```. To change the hyperparameters of AutoSeg, refer to the config file ```/X-Decoder/configs/autoseg/autoseg.yml```.
+You will find the output images in ```/output```. To change the hyperparameters of AutoSeg, refer to the config file ```/X-Decoder/configs/autoseg/autoseg.yml```.
 
 ## Cite
 If you found this work useful, please cite our work.
